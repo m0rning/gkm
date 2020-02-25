@@ -7,7 +7,7 @@ var path = require('path');
 var spawn = require('child_process').spawn;
 
 var events = new EventEmitter2({wildcard: true});
-var gkm = spawn('java', ['-jar -Xmx256m', path.join(__dirname, 'lib/gkm.jar')]);
+var gkm = spawn('java', ['-jar', '-Xmx256m', path.join(__dirname, 'lib/gkm.jar')]);
 
 gkm.stdout.on('data', function(data) {
 	data = data.toString().split(/\r\n|\r|\n/).filter(function(item) { return item; });
